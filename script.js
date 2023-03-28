@@ -34,9 +34,7 @@ const songs = [
   },
 ];
 
-
 let isPlaying = false;
-
 
 function playSong() {
   isPlaying = true;
@@ -45,7 +43,6 @@ function playSong() {
   music.play();
 }
 
-
 function pauseSong() {
   isPlaying = false;
   playBtn.classList.replace('fa-pause', 'fa-play');
@@ -53,9 +50,7 @@ function pauseSong() {
   music.pause();
 }
 
-
 playBtn.addEventListener('click', () => (isPlaying ? pauseSong() : playSong()));
-
 
 function loadSong(song) {
   title.textContent = song.displayName;
@@ -75,7 +70,6 @@ function prevSong() {
   playSong();
 }
 
-
 function nextSong() {
   songIndex++;
   if (songIndex > songs.length - 1) {
@@ -85,9 +79,7 @@ function nextSong() {
   playSong();
 }
 
-
 loadSong(songs[songIndex]);
-
 
 function updateProgressBar(e) {
   if (isPlaying) {
@@ -115,14 +107,12 @@ function updateProgressBar(e) {
   }
 }
 
-
 function setProgressBar(e) {
   const width = this.clientWidth;
   const clickX = e.offsetX;
   const { duration } = music;
   music.currentTime = (clickX / width) * duration;
 }
-
 
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
